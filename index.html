@@ -1,0 +1,2537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Elysian Galleria • For Someone Precious</title>
+  
+  <!-- Premium Editorial & Luxury Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================================
+       WHITE, BEIGE & WARM PASTEL LUXURY EDITORIAL DESIGN SYSTEM
+    ============================================================= */
+    :root {
+      /* Warm Palette */
+      --bg-base: #faf8f5;
+      --bg-cream: #f4efe6;
+      --bg-surface: #ffffff;
+      --bg-sand: #eee7db;
+      
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(197, 160, 89, 0.28);
+      --card-border-soft: rgba(0, 0, 0, 0.05);
+      
+      /* Refined Pastel & Brushed Metallics */
+      --gold-primary: #b8924b;
+      --gold-light: #d6b879;
+      --gold-whisper: #f6efe1;
+      
+      --pastel-rose: #eed9dc;
+      --pastel-blush: #fcf1f2;
+      --pastel-sage: #d9e3d7;
+      --pastel-sky: #dce7ee;
+      --pastel-apricot: #fae8d8;
+      
+      /* Sophisticated Editorial Typography Tones */
+      --text-main: #272421;
+      --text-body: #5a544c;
+      --text-muted: #958c82;
+      --text-light: #b8b0a5;
+      
+      /* Fonts */
+      --font-display: 'Italiana', serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-playfair: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      
+      --luxury-shadow: 0 20px 50px rgba(78, 64, 46, 0.06), 0 4px 12px rgba(78, 64, 46, 0.03);
+      --card-shadow-hover: 0 30px 65px rgba(78, 64, 46, 0.1), 0 8px 20px rgba(78, 64, 46, 0.04);
+      --soft-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(246, 239, 225, 0.7) 0, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(238, 217, 220, 0.4) 0, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(250, 248, 245, 1) 0, transparent 100%);
+      background-attachment: fixed;
+    }
+
+    /* Refined Warm Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #dfd4c4;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-light);
+    }
+
+    /* Ambient Subtle Grain Canvas */
+    #ambient-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    /* Minimalist Cursor Follower */
+    #cursor-follower {
+      position: fixed;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(184, 146, 75, 0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s var(--soft-ease), height 0.3s var(--soft-ease), border-color 0.3s ease, background 0.3s ease;
+      display: none;
+    }
+
+    #cursor-dot {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    @media (pointer: fine) {
+      #cursor-follower, #cursor-dot {
+        display: block;
+      }
+    }
+
+    /* =============================================================
+       GATEWAY SCREEN: PRIVATE SALON ENTRANCE
+       Hint: "something u never said ur self"
+       Password: "precious"
+    ============================================================= */
+    #gatekeeper-view {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 45%, #ffffff 0%, #f7f3ec 60%, #eee6d8 100%);
+      transition: opacity 0.8s var(--soft-ease), transform 0.8s var(--soft-ease), filter 0.8s var(--soft-ease), visibility 0.8s;
+      padding: 24px;
+    }
+
+    #gatekeeper-view.unlocked {
+      opacity: 0 !important;
+      transform: scale(1.08) translateY(-20px) !important;
+      filter: blur(12px) !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+
+    .gateway-ambient-glow {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(238, 217, 220, 0.6) 0%, rgba(246, 239, 225, 0.4) 45%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: ambientBreathe 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientBreathe {
+      0% { transform: scale(0.9) translate(-3%, -3%); opacity: 0.5; }
+      100% { transform: scale(1.15) translate(3%, 3%); opacity: 0.85; }
+    }
+
+    .private-vault-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 56px 44px;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      box-shadow: 0 30px 70px rgba(100, 85, 65, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.4s var(--soft-ease);
+    }
+
+    .monogram-crest {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(184, 146, 75, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold-whisper);
+      color: var(--gold-primary);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 16px rgba(184, 146, 75, 0.12);
+    }
+
+    .vault-kicker {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+    }
+
+    .vault-title {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .vault-sub {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-body);
+      margin-bottom: 34px;
+    }
+
+    /* Delicate Clue Box */
+    .hint-paper {
+      background: #faf6f0;
+      border: 1px solid #ebdcc6;
+      border-radius: 20px;
+      padding: 16px 22px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .hint-pill {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9c6c31;
+      background: rgba(184, 146, 75, 0.12);
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .hint-quote {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-main);
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    .password-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input-box-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .luxury-input {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #e0d5c3;
+      border-radius: 18px;
+      padding: 18px 22px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      color: var(--text-main);
+      text-align: center;
+      outline: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .luxury-input::placeholder {
+      letter-spacing: 0.18em;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .luxury-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(184, 146, 75, 0.12), inset 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .enter-btn {
+      position: relative;
+      background: linear-gradient(135deg, #272421 0%, #3a352f 100%);
+      border: 1px solid #1c1917;
+      border-radius: 18px;
+      padding: 18px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #faf7f2;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.25s var(--soft-ease), box-shadow 0.25s var(--soft-ease), background 0.25s ease;
+      box-shadow: 0 8px 22px rgba(39, 36, 33, 0.15);
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(39, 36, 33, 0.22);
+      background: linear-gradient(135deg, #1c1a17 0%, #2e2a25 100%);
+    }
+
+    .enter-btn:active {
+      transform: translateY(0);
+    }
+
+    .error-hint {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #b94e5a;
+      min-height: 22px;
+      margin-top: 6px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .error-hint.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gentle-shake {
+      animation: softShake 0.5s var(--soft-ease) both;
+    }
+    @keyframes softShake {
+      20%, 80% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+
+    /* =============================================================
+       CONCOURSE INTERFACE (MAIN GALLERIA)
+    ============================================================= */
+    #galleria-universe {
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1.5s var(--soft-ease), visibility 1.5s var(--soft-ease);
+    }
+
+    #galleria-universe.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Header Bar: Minimalist Luxury Boutique Header */
+    .concourse-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 84px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+      z-index: 50;
+    }
+
+    .concourse-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-monogram {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-primary);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(184, 146, 75, 0.1);
+    }
+
+    .brand-meta h1 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+      color: var(--text-main);
+    }
+
+    .brand-meta p {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Audio Controller Pill */
+    .audio-lounge-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(197, 160, 89, 0.28);
+      padding: 7px 18px;
+      border-radius: 100px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .audio-play-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-light);
+      background: var(--gold-whisper);
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .audio-play-toggle:hover {
+      background: var(--gold-primary);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .track-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .track-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .track-dot {
+      width: 6px;
+      height: 6px;
+      background: #c58d94;
+      border-radius: 50%;
+      animation: dotPulse 1.8s infinite ease-in-out;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .track-artist {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    #header-wave-canvas {
+      width: 50px;
+      height: 18px;
+    }
+
+    /* =============================================================
+       ELEVATOR DIRECTORY: MINIMALIST LUXURY DOCK
+    ============================================================= */
+    .elevator-column {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 45;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 14px 8px;
+      border-radius: 30px;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .dock-station {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .dock-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--soft-ease);
+      cursor: pointer;
+    }
+
+    .dock-station:hover .dock-btn {
+      color: var(--gold-primary);
+      background: var(--gold-whisper);
+    }
+
+    .dock-station.active .dock-btn {
+      background: #272421;
+      color: #faf7f2;
+      box-shadow: 0 4px 14px rgba(39, 36, 33, 0.2);
+      transform: scale(1.1);
+    }
+
+    .dock-tooltip {
+      position: absolute;
+      right: 52px;
+      background: #ffffff;
+      border: 1px solid #ebdcc6;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      font-style: italic;
+      white-space: nowrap;
+      color: var(--text-main);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .dock-station:hover .dock-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* =============================================================
+       GALLERIA FLOORS & EDITORIAL ARCHITECTURE
+    ============================================================= */
+    .concourse-main {
+      position: relative;
+      width: 100%;
+      padding-top: 84px;
+    }
+
+    .galleria-floor {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 10% 90px;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.14);
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .kicker-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      color: var(--gold-primary);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .kicker-roman {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .floor-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      max-width: 880px;
+    }
+
+    .floor-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-style: italic;
+      color: var(--text-body);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 50px;
+    }
+
+    /* Refined Luxury Card Standard */
+    .editorial-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(224, 213, 195, 0.7);
+      border-radius: 26px;
+      padding: 36px 32px;
+      box-shadow: var(--luxury-shadow);
+      transition: transform 0.4s var(--soft-ease), box-shadow 0.4s var(--soft-ease), border-color 0.4s ease;
+      position: relative;
+    }
+
+    .editorial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: rgba(197, 160, 89, 0.45);
+    }
+
+    /* =============================================================
+       FLOOR 01: CGC CAMPUS PROMENADE (CHANDIGARH GROUP OF COLLEGES)
+    ============================================================= */
+    .cu-triptych {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 30px;
+      width: 100%;
+    }
+
+    .cu-journal-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cu-card-index {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .cu-card-name {
+      font-family: var(--font-playfair);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .cu-card-text {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .cu-card-footer {
+      border-top: 1px solid #f0e8dc;
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    /* =============================================================
+       FLOOR 02: MAISON DE FROK (HAUTE COUTURE & FROG ATELIER)
+    ============================================================= */
+    .frok-salon-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .frok-salon-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .atelier-mannequin-box {
+      background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf6ef 60%, #f4ede0 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 44px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: var(--luxury-shadow);
+      position: relative;
+    }
+
+    .mannequin-frog-stage {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 26px;
+      cursor: pointer;
+      transition: transform 0.3s var(--soft-ease);
+    }
+
+    .mannequin-frog-stage:hover {
+      transform: scale(1.05);
+    }
+
+    .frog-gentle-bubble {
+      position: absolute;
+      top: -15px;
+      right: 10px;
+      background: #ffffff;
+      border: 1px solid #ecdcc6;
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      padding: 10px 18px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: scale(0.8) translateY(10px);
+      transition: all 0.35s var(--soft-ease);
+      pointer-events: none;
+      z-index: 10;
+    }
+    .frog-gentle-bubble.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Couture Palette Pill Swatches */
+    .palette-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #ebdcc6;
+      padding: 8px 12px;
+      border-radius: 100px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .couture-swatch-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      padding: 8px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .couture-swatch-btn.active {
+      background: var(--gold-whisper);
+      border-color: var(--gold-light);
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .frok-philosophy {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .philosophy-card {
+      background: #ffffff;
+      border: 1px solid rgba(224, 213, 195, 0.7);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--luxury-shadow);
+    }
+
+    .philosophy-heading {
+      font-family: var(--font-playfair);
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    /* =============================================================
+       FLOOR 03: LE COMPTOIR NUTRI KULCHA (THE GOURMET STREET)
+    ============================================================= */
+    .nutri-culinary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .nutri-culinary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tawa-copper-pan-box {
+      background: radial-gradient(circle at center, #ffffff 0%, #faf5ec 60%, #f2e9dc 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 46px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--luxury-shadow);
+      position: relative;
+    }
+
+    /* Artisan Cast Iron / Brass Tawa */
+    .artisan-tawa {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      background: radial-gradient(circle at 40% 40%, #4a453f, #2d2925 80%);
+      border-radius: 50%;
+      border: 10px solid #b8924b;
+      box-shadow: 0 20px 40px rgba(78, 64, 46, 0.18), inset 0 0 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.25s var(--soft-ease);
+    }
+
+    .artisan-tawa:active {
+      transform: scale(0.96);
+    }
+
+    .nutri-simmer-gravy {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 35% 35%, #a8582b, #703310 80%);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Butter Cube */
+    .artisan-butter-pat {
+      width: 44px;
+      height: 36px;
+      background: linear-gradient(135deg, #fffadb, #fae290);
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(250, 226, 144, 0.8);
+      animation: meltGentle 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes meltGentle {
+      0% { transform: scale(1) rotate(0deg); opacity: 1; }
+      100% { transform: scale(0.85, 0.72) rotate(4deg); opacity: 0.92; }
+    }
+
+    .steam-vapor-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .sizzle-action-btn {
+      margin-top: 28px;
+      background: #ffffff;
+      border: 1px solid var(--gold-light);
+      color: var(--gold-primary);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 26px;
+      border-radius: 100px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(184, 146, 75, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    .sizzle-action-btn:hover {
+      background: var(--gold-primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(184, 146, 75, 0.22);
+    }
+
+    .recipe-provenance-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .ingredient-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ing-tag-soft {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      background: var(--gold-whisper);
+      border: 1px solid #ebdcc6;
+      color: #7b623b;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    /* =============================================================
+       FLOOR 04: THE STARLIGHT AUDITORIUM & "DIE WITH YOU"
+    ============================================================= */
+    .starlight-salon-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 50px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 60px 48px;
+      box-shadow: var(--luxury-shadow);
+    }
+
+    @media (max-width: 960px) {
+      .starlight-salon-grid {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
+      }
+    }
+
+    .vinyl-credenza {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .turntable-deck {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      background: #faf6f0;
+      border: 1px solid #ebdcc6;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.04);
+    }
+
+    .pastel-vinyl-disc {
+      width: 215px;
+      height: 215px;
+      background: radial-gradient(circle, #f2eae2 25%, #2a2520 65%, #1a1715 100%);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinTurntable 9s linear infinite;
+      animation-play-state: paused;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .pastel-vinyl-disc.spinning {
+      animation-play-state: running;
+    }
+
+    @keyframes spinTurntable {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .vinyl-label-center {
+      width: 76px;
+      height: 76px;
+      background: var(--gold-whisper);
+      border: 1px solid var(--gold-light);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .vinyl-label-center span {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+    }
+
+    .brass-tone-arm {
+      position: absolute;
+      top: 26px;
+      right: 32px;
+      width: 8px;
+      height: 105px;
+      background: linear-gradient(180deg, #d6b879, #9c7b3c);
+      border-radius: 4px;
+      transform-origin: top center;
+      transform: rotate(-24deg);
+      transition: transform 0.6s var(--soft-ease);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .pastel-vinyl-disc.spinning ~ .brass-tone-arm {
+      transform: rotate(6deg);
+    }
+
+    /* Kinetic Lyrics In Elegant Serif */
+    .starlight-lyrics-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .song-lyric-stanza {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-style: italic;
+      color: var(--text-light);
+      line-height: 1.5;
+      padding-left: 16px;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.4s var(--soft-ease);
+    }
+
+    .song-lyric-stanza.active {
+      color: var(--text-main);
+      border-left-color: var(--gold-primary);
+      transform: translateX(8px);
+    }
+
+    .hero-play-pill {
+      margin-top: 24px;
+      background: #272421;
+      border: none;
+      color: #faf7f2;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 100px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(39, 36, 33, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .hero-play-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(39, 36, 33, 0.22);
+    }
+
+    /* =============================================================
+       FLOOR 05: THE PENTHOUSE SUITE & PERSONAL LETTER
+    ============================================================= */
+    .penthouse-letter-frame {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 36px;
+      padding: 65px 50px;
+      box-shadow: var(--luxury-shadow);
+      position: relative;
+    }
+
+    .letter-parchment-text {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 2.05;
+      color: var(--text-body);
+      margin-bottom: 40px;
+    }
+
+    .letter-parchment-text p {
+      margin-bottom: 24px;
+    }
+
+    .letter-highlight-gold {
+      color: var(--text-main);
+      font-weight: 600;
+      background: linear-gradient(120deg, rgba(214, 184, 121, 0.25) 0%, rgba(214, 184, 121, 0.08) 100%);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .wishing-basin-box {
+      background: #faf7f2;
+      border: 1px solid #e8dcce;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .basin-coin-btn {
+      background: #ffffff;
+      border: 1px solid var(--gold-light);
+      color: var(--gold-primary);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 100px;
+      cursor: pointer;
+      margin-top: 16px;
+      box-shadow: 0 4px 14px rgba(184, 146, 75, 0.1);
+      transition: all 0.25s ease;
+    }
+
+    .basin-coin-btn:hover {
+      background: var(--gold-primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(184, 146, 75, 0.2);
+    }
+
+    /* Footer */
+    .concourse-footer {
+      padding: 60px 8% 70px;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      background: #ffffff;
+    }
+
+    .footer-galleria-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+    }
+
+    .footer-sub-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .concourse-header {
+        padding: 0 20px;
+      }
+      .galleria-floor {
+        padding: 95px 6% 65px;
+      }
+      .elevator-column {
+        right: 12px;
+        padding: 10px 6px;
+      }
+      .dock-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+      }
+      .dock-tooltip {
+        display: none;
+      }
+      .private-vault-card {
+        padding: 40px 24px;
+      }
+      .penthouse-letter-frame {
+        padding: 40px 24px;
+      }
+    }
+
+    /* =============================================================
+       FLOOR IV: THE BIRTHDAY PAVILION (LUXURY EDITORIAL)
+    ============================================================= */
+    .bday-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .bday-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bday-feature-card {
+      background: linear-gradient(145deg, #ffffff 0%, #faf5ef 100%);
+      border: 1px solid rgba(238, 217, 220, 0.85);
+      border-radius: 32px;
+      padding: 44px 38px;
+      box-shadow: var(--luxury-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bday-feature-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(238, 217, 220, 0.5), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .bday-interactive-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      padding: 44px 36px;
+      box-shadow: var(--luxury-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .bday-candle-wrapper {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--gold-whisper);
+      border: 1px solid var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(184, 146, 75, 0.15);
+      animation: candleGlow 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes candleGlow {
+      0% { transform: scale(1) rotate(0deg); box-shadow: 0 6px 20px rgba(184, 146, 75, 0.15); }
+      100% { transform: scale(1.08) rotate(2deg); box-shadow: 0 10px 30px rgba(214, 184, 121, 0.35); }
+    }
+
+    .bday-wish-btn {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #272421 0%, #3a352f 100%);
+      color: #faf7f2;
+      border: 1px solid #1c1917;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      border-radius: 100px;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(39, 36, 33, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .bday-wish-btn:hover {
+      background: var(--gold-primary);
+      color: #ffffff;
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(184, 146, 75, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimalist Ambient Dust Particles Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Fine Cursor Pointer -->
+  <div id="cursor-follower"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- =============================================================
+       GATEWAY SCREEN: PRIVATE ENTRANCE VAULT
+       Hint: "something u never said ur self"
+       Password: "precious"
+  ============================================================= -->
+  <div id="gatekeeper-view">
+    <div class="gateway-ambient-glow"></div>
+    
+    <div class="private-vault-card" id="vault-card-box">
+      <div class="monogram-crest">P</div>
+
+      <div class="vault-kicker">A Quiet Space • Just For You</div>
+      <h2 class="vault-title">FOR SOMEONE PRECIOUS</h2>
+      <p class="vault-sub">A collection of our memories, the things you love, and words I never said out loud.</p>
+
+      <!-- The Hint Box (Clickable to auto-fill) -->
+      <div class="hint-paper" onclick="quickFillPrecious()" title="Click to fill password" style="cursor: pointer;">
+        <span class="hint-pill">CLUE</span>
+        <span class="hint-quote">"something u never said ur self"</span>
+      </div>
+
+      <form class="password-form" id="gate-form" onsubmit="event.preventDefault(); attemptUnlock(event); return false;">
+        <div class="input-box-wrapper">
+          <input 
+            type="text" 
+            id="password-input" 
+            class="luxury-input" 
+            placeholder="ENTER PASSCODE (precious)..." 
+            autocomplete="off" 
+            spellcheck="false"
+            onkeydown="if(event.key === 'Enter'){ event.preventDefault(); attemptUnlock(event); }"
+          />
+        </div>
+        <button type="button" class="enter-btn" id="enter-btn" onclick="attemptUnlock(event);">
+          ENTER OUR ARCHIVE
+        </button>
+        <div class="error-hint" id="gate-error">
+          Incorrect passcode. Clue: "something u never said ur self" (Try typing: precious)
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       THE GRAND MALL UNIVERSE (AFTER UNLOCK)
+  ============================================================= -->
+  <div id="galleria-universe">
+
+    <!-- Actual Audio Track: Die With You -->
+    <audio id="bg-audio" preload="auto">
+      <source src="diewithyou.mp3" type="audio/mpeg">
+      <source src="diewithyou.mp4" type="audio/mp4">
+    </audio>
+
+    <!-- Top Mall Concourse Header -->
+    <header class="concourse-header">
+      <div class="concourse-brand">
+        <div class="brand-monogram">P</div>
+        <div class="brand-meta">
+          <h1>ELYSIAN MALL</h1>
+          <p>CGC CHAPTER • ARCHIVE</p>
+        </div>
+      </div>
+
+      <!-- Music Player Pill -->
+      <div class="audio-lounge-pill">
+        <button class="audio-play-toggle" id="audio-toggle-btn" onclick="toggleAudio()" title="Play/Pause Die With You">
+          <svg id="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+        
+        <div class="track-meta">
+          <div class="track-title">
+            <span class="track-dot"></span>
+            Die With You
+          </div>
+          <div class="track-artist">Beyoncé • Acoustic Salon Mix</div>
+        </div>
+
+        <canvas id="header-wave-canvas"></canvas>
+      </div>
+    </header>
+
+    <!-- Elevator Floor Navigator -->
+    <nav class="elevator-column" id="elevator-dock">
+      <div class="dock-station active" onclick="rideElevator('floor-cgc')">
+        <button class="dock-btn">I</button>
+        <div class="dock-tooltip">Your College Days at CGC</div>
+      </div>
+      <div class="dock-station" onclick="rideElevator('floor-frok')">
+        <button class="dock-btn">II</button>
+        <div class="dock-tooltip">You in a Frock</div>
+      </div>
+      <div class="dock-station" onclick="rideElevator('floor-nutri')">
+        <button class="dock-btn">III</button>
+        <div class="dock-tooltip">When You Made Nutri Kulcha</div>
+      </div>
+      <div class="dock-station" onclick="rideElevator('floor-bday')">
+        <button class="dock-btn">IV</button>
+        <div class="dock-tooltip">Your Upcoming Birthday</div>
+      </div>
+      <div class="dock-station" onclick="rideElevator('floor-song')">
+        <button class="dock-btn">V</button>
+        <div class="dock-tooltip">Die With You Salon</div>
+      </div>
+      <div class="dock-station" onclick="rideElevator('floor-vault')">
+        <button class="dock-btn">VI</button>
+        <div class="dock-tooltip">Why You Are Precious</div>
+      </div>
+    </nav>
+
+    <!-- ===========================================================
+         FLOOR 01: CGC CAMPUS PROMENADE (WISHING HER A GOOD COLLEGE LIFE)
+    =========================================================== -->
+    <main class="concourse-main">
+      <section class="galleria-floor" id="floor-cgc">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level I • Your Journey</span>
+          <span class="kicker-roman">CGC Campus • Wishing You The Best</span>
+        </div>
+
+        <h2 class="floor-title">WISHING YOU A BEAUTIFUL COLLEGE LIFE AT CGC</h2>
+        <p class="floor-lead">
+          Even though I wasn't studying there beside you at CGC, I’ve always cheered for you from the bottom of my heart. College is one of the most defining and memorable chapters of life, and I genuinely wish you the happiest, most fulfilling experience throughout your journey.
+        </p>
+
+        <div class="cu-triptych">
+          <!-- Card 1 -->
+          <div class="editorial-card cu-journal-card">
+            <div>
+              <div class="cu-card-index">01</div>
+              <h3 class="cu-card-name">Chasing Your Ambitions</h3>
+              <p class="cu-card-text">
+                I know how hard you work and the sincere dedication you put into your studies and classes at CGC. Through every long lecture, busy assignment, and exam week, never doubt how talented, capable, and brilliant you truly are. Keep shining.
+              </p>
+            </div>
+            <div class="cu-card-footer">
+              <span>CGC Classrooms</span>
+              <span>Bright Horizons Ahead</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="editorial-card cu-journal-card">
+            <div>
+              <div class="cu-card-index">02</div>
+              <h3 class="cu-card-name">Warm Friendships & Campus Days</h3>
+              <p class="cu-card-text">
+                I hope your days at CGC are filled with genuine people who appreciate you, memorable conversations over tea, and laughter that echoes across the campus lawns. You deserve college memories that feel warm, joyful, and completely unforgettable.
+              </p>
+            </div>
+            <div class="cu-card-footer">
+              <span>CGC Campus Lawns</span>
+              <span>Laughter & Good Friends</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="editorial-card cu-journal-card">
+            <div>
+              <div class="cu-card-index">03</div>
+              <h3 class="cu-card-name">Peace & Gentle Confidence</h3>
+              <p class="cu-card-text">
+                Whenever college life gets overwhelming or demanding, take a quiet breath and be gentle with yourself. Walk into every new semester with calm confidence, knowing that you have so much greatness in store. Always rooting for you.
+              </p>
+            </div>
+            <div class="cu-card-footer">
+              <span>Every Step Forward</span>
+              <span>Always Cheering For You</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           FLOOR 02: MAISON DE FROK (FROGS & HAUTE COUTURE FROCKS)
+      =========================================================== -->
+      <section class="galleria-floor" id="floor-frok">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level II • The Frok Pavilion</span>
+          <span class="kicker-roman">Lilypad Atelier & Couture</span>
+        </div>
+
+        <h2 class="floor-title">HOW BEAUTIFUL YOU LOOK IN A FROCK</h2>
+        <p class="floor-lead">
+          I don’t know if anyone ever told you this enough, but whenever you wore a frock, you looked genuinely breathtaking. There was an effortless grace and innocence in how you carried yourself that made you impossible not to admire.
+        </p>
+
+        <div class="frok-salon-grid">
+          <!-- Interactive Frog Model in Haute Couture Frock -->
+          <div class="atelier-mannequin-box">
+            <div class="mannequin-frog-stage" onclick="triggerFrogRibbit()">
+              <div class="frog-gentle-bubble" id="frog-speech">You look so radiant in a frock ✨</div>
+              
+              <!-- Refined Pastel Vector Frog in Haute Couture Gown -->
+              <svg width="220" height="220" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft Watercolor Lilypad Platform -->
+                <ellipse cx="150" cy="270" rx="95" ry="18" fill="#d9e3d7" opacity="0.9"/>
+                <ellipse cx="150" cy="268" rx="85" ry="14" fill="#cbd8c9"/>
+                
+                <!-- Frog Head & Body in Soft Muted Sage -->
+                <ellipse cx="150" cy="130" rx="65" ry="55" fill="#a8c3a0"/>
+                
+                <!-- Big Innocent Eyes -->
+                <circle cx="110" cy="90" r="23" fill="#a8c3a0"/>
+                <circle cx="190" cy="90" r="23" fill="#a8c3a0"/>
+                <circle cx="110" cy="90" r="17" fill="#ffffff"/>
+                <circle cx="190" cy="90" r="17" fill="#ffffff"/>
+                <circle cx="114" cy="88" r="9" fill="#2d2a26"/>
+                <circle cx="186" cy="88" r="9" fill="#2d2a26"/>
+                <!-- Delicate Sparkle in Eyes -->
+                <circle cx="111" cy="85" r="3.5" fill="#ffffff"/>
+                <circle cx="183" cy="85" r="3.5" fill="#ffffff"/>
+
+                <!-- Delicate Pastel Blush -->
+                <circle cx="102" cy="140" r="10" fill="#e8c2c8" opacity="0.7"/>
+                <circle cx="198" cy="140" r="10" fill="#e8c2c8" opacity="0.7"/>
+
+                <!-- Gentle Smile -->
+                <path d="M136 145 C148 154, 152 154, 164 145" stroke="#486242" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- Delicate Brushed Gold Tiara -->
+                <path d="M136 72 L143 82 L150 68 L157 82 L164 72 L164 85 L136 85 Z" fill="#d6b879" stroke="#b8924b" stroke-width="1.5"/>
+                <circle cx="150" cy="68" r="2.5" fill="#eed9dc"/>
+
+                <!-- Haute Couture Gown / Frock (Color Controlled via JS) -->
+                <path id="frog-frock-mesh" d="M115 160 Q150 168 185 160 L215 250 Q150 268 85 250 Z" fill="#eed9dc" stroke="#dfc2c6" stroke-width="1.5"/>
+                
+                <!-- Waist Sash in Brushed Gold -->
+                <path d="M125 163 Q150 170 175 163" stroke="#b8924b" stroke-width="3.5" fill="none"/>
+                <circle cx="150" cy="166" r="5" fill="#ffffff" stroke="#b8924b" stroke-width="1.5"/>
+
+                <!-- Little Hands -->
+                <ellipse cx="98" cy="170" rx="11" ry="9" fill="#a8c3a0"/>
+                <ellipse cx="202" cy="170" rx="11" ry="9" fill="#a8c3a0"/>
+              </svg>
+            </div>
+
+            <!-- Couture Swatch Selector -->
+            <div class="palette-swatches">
+              <button class="couture-swatch-btn active" onclick="setGownStyle('#eed9dc', 'Pastel Rose Silk')">
+                <span class="swatch-color-dot" style="background: #eed9dc;"></span> Rose Silk
+              </button>
+              <button class="couture-swatch-btn" onclick="setGownStyle('#dce7ee', 'Cashmere Azure Tulle')">
+                <span class="swatch-color-dot" style="background: #dce7ee;"></span> Azure Tulle
+              </button>
+              <button class="couture-swatch-btn" onclick="setGownStyle('#f6efe1', 'Champagne Chiffon')">
+                <span class="swatch-color-dot" style="background: #f6efe1;"></span> Champagne
+              </button>
+              <button class="couture-swatch-btn" onclick="setGownStyle('#e6dfeb', 'Lavender Crepe')">
+                <span class="swatch-color-dot" style="background: #e6dfeb;"></span> Lavender
+              </button>
+            </div>
+          </div>
+
+          <!-- Philosophy Notes -->
+          <div class="frok-philosophy">
+            <div class="philosophy-card">
+              <h3 class="philosophy-heading">The Grace You Never Noticed</h3>
+              <p style="font-size: 0.94rem; color: var(--text-body); line-height: 1.75;">
+                You were always so modest, but whenever you wore a frock, you lit up the entire room without even trying. That effortless elegance, blended with your sweet, silly love for cute little froggies, made you who you are — completely unique, gentle, and radiant.
+              </p>
+            </div>
+
+            <div class="philosophy-card">
+              <h3 class="philosophy-heading">A Memory Etched in My Mind</h3>
+              <p style="font-size: 0.94rem; color: var(--text-body); line-height: 1.75;">
+                Every time you dressed up, there was a sweetness that made my heart pause. It was never just about the dress; it was the light in your eyes, the way you smiled, and the quiet warmth you carried with you everywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           FLOOR 03: LE COMPTOIR NUTRI KULCHA (THE GOURMET STREET)
+      =========================================================== -->
+      <section class="galleria-floor" id="floor-nutri">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level III • Warm Comfort</span>
+          <span class="kicker-roman">When You Made It Special</span>
+        </div>
+
+        <h2 class="floor-title">WHEN YOU MADE NUTRI KULCHA MY FAVORITE THING</h2>
+        <p class="floor-lead">
+          Before you, nutri kulcha was just another dish. But the day you made it — watching you in the kitchen, seeing the butter melt over the hot tawa, and tasting something prepared by your hands — all of a sudden, it became my absolute favorite thing in the world.
+        </p>
+
+        <div class="nutri-culinary-grid">
+          <!-- Cast Iron Tawa Presentation -->
+          <div class="tawa-copper-pan-box">
+            <div class="artisan-tawa" id="artisan-tawa" onclick="sizzleTawaAction()">
+              <div class="steam-vapor-layer" id="steam-vapor-layer"></div>
+              <div class="nutri-simmer-gravy">
+                <div class="artisan-butter-pat"></div>
+              </div>
+            </div>
+
+            <button class="sizzle-action-btn" onclick="sizzleTawaAction()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+              </svg>
+              TOSS & HEAR THE SIZZLE
+            </button>
+          </div>
+
+          <!-- Culinary Provenance -->
+          <div class="recipe-provenance-box">
+            <div class="editorial-card">
+              <h3 class="cu-card-name" style="font-size: 1.45rem;">Made By Your Hands</h3>
+              <p style="font-size: 0.95rem; color: var(--text-body); line-height: 1.75;">
+                It wasn’t just about the spices or the extra dollop of butter. It was about <em>you</em> standing there, cooking with so much care, smiling as you handed me the plate. In that simple, quiet moment, no restaurant in the world could have matched what you made.
+              </p>
+              
+              <div class="ingredient-pill-row">
+                <span class="ing-tag-soft">Made With Your Care</span>
+                <span class="ing-tag-soft">Extra Golden Butter</span>
+                <span class="ing-tag-soft">Warm Toasted Kulchas</span>
+                <span class="ing-tag-soft">Shared Laughter</span>
+                <span class="ing-tag-soft">Unforgettable Taste</span>
+              </div>
+            </div>
+
+            <div class="editorial-card" style="border-left: 3px solid #b8924b;">
+              <h4 style="font-family: var(--font-body); font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 6px;">
+                A NOSTALGIC MEMORY
+              </h4>
+              <p style="font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; color: var(--text-body); line-height: 1.6;">
+                "Wiping the plate clean with the very last piece of warm buttery kulcha, smiling across the table, and agreeing that nothing else hit quite like that. Ever since that day, whenever I smell toasted kulcha or melting butter, I instantly think of you."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           FLOOR 04: THE BIRTHDAY PAVILION (UPCOMING BIRTHDAY)
+      =========================================================== -->
+      <section class="galleria-floor" id="floor-bday">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level IV • A Special Celebration</span>
+          <span class="kicker-roman">For Your Upcoming Birthday</span>
+        </div>
+
+        <h2 class="floor-title">COUNTING DOWN TO YOUR SPECIAL DAY</h2>
+        <p class="floor-lead">
+          Your birthday is coming up soon, and I wanted to create a dedicated corner in this space just to celebrate the day you came into this world. You deserve all the peace, gentleness, and genuine happiness life has to offer.
+        </p>
+
+        <div class="bday-grid">
+          <!-- Birthday Feature Column -->
+          <div class="bday-feature-card">
+            <div>
+              <div style="font-size: 2.2rem; color: #b8924b; margin-bottom: 12px;">🎂</div>
+              <h3 class="cu-card-name" style="font-size: 1.55rem; margin-bottom: 16px;">A Wish For Your Next Chapter</h3>
+              <p style="font-size: 0.95rem; color: var(--text-body); line-height: 1.8; margin-bottom: 20px;">
+                May your upcoming year be soft, kind, and full of days where you feel deeply cherished. May you achieve every quiet goal you hold close to your heart, and may you never forget how much warmth and brightness you bring into the world.
+              </p>
+              <p style="font-size: 0.92rem; color: var(--text-muted); font-family: var(--font-serif); font-style: italic; line-height: 1.7;">
+                "Years pass and things change, but the fact that you were born and that our paths crossed will always be something I am quietly grateful for. I hope you smile the biggest smile on your birthday."
+              </p>
+            </div>
+            <div class="cu-card-footer" style="margin-top: 24px;">
+              <span>To The Girl With The Purest Heart</span>
+              <span>A Golden Year Ahead</span>
+            </div>
+          </div>
+
+          <!-- Birthday Interactive Candle & Wish Generator -->
+          <div class="bday-interactive-card">
+            <div class="bday-candle-wrapper" id="bday-candle">✨</div>
+            <h4 style="font-family: var(--font-playfair); font-size: 1.45rem; color: var(--text-main); margin-bottom: 10px;">
+              A Birthday Wish For You
+            </h4>
+            <p style="font-size: 0.9rem; color: var(--text-body); max-width: 320px; line-height: 1.65;">
+              Tap the button to send a silent blessing into the universe for your upcoming year of happiness and peace.
+            </p>
+            <button class="bday-wish-btn" onclick="sendBirthdayWish()">
+              SEND A BIRTHDAY WISH ✨
+            </button>
+            <div style="font-size: 0.82rem; color: var(--gold-primary); margin-top: 14px; font-family: var(--font-body); font-weight: 500;" id="bday-wish-counter">
+              Wishes sent for your birthday: 108 warm blessings
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           FLOOR 05: THE STARLIGHT SALON & "DIE WITH YOU"
+      =========================================================== -->
+      <section class="galleria-floor" id="floor-song">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level V • Our Song</span>
+          <span class="kicker-roman">Acoustic Pavilion</span>
+        </div>
+
+        <h2 class="floor-title">DIE WITH YOU • THE WORDS THAT STAY</h2>
+        <p class="floor-lead">
+          This song has always carried the depth of what I felt. It’s not just a melody; it’s a reflection of how real and meaningful being with you was. Hear it play from the 10th second, and know every word comes from the heart.
+        </p>
+
+        <div class="starlight-salon-grid">
+          <!-- Minimalist Pastel Turntable -->
+          <div class="vinyl-credenza">
+            <div class="turntable-deck">
+              <div class="pastel-vinyl-disc" id="mall-vinyl">
+                <div class="vinyl-label-center">
+                  <span>DIE WITH</span>
+                  <span>YOU</span>
+                </div>
+              </div>
+              <div class="brass-tone-arm" id="vinyl-arm"></div>
+            </div>
+
+            <button class="hero-play-pill" onclick="toggleAudio()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span id="play-btn-text">PLAY IN ATRIUM</span>
+            </button>
+          </div>
+
+          <!-- Editorial Starlight Lyrics -->
+          <div class="starlight-lyrics-flow" id="lyrics-flow">
+            <div class="song-lyric-stanza active" onclick="highlightLyric(0)">
+              "I don't have a reason to cry, and I have every reason to smile..."
+            </div>
+            <div class="song-lyric-stanza" onclick="highlightLyric(1)">
+              "I don't have a reason to lie, when you're already reading my mind..."
+            </div>
+            <div class="song-lyric-stanza" onclick="highlightLyric(2)">
+              "I don't have a reason to be, if I can't be with you..."
+            </div>
+            <div class="song-lyric-stanza" onclick="highlightLyric(3)">
+              "'Cause darling, I wake up just to sleep with you..."
+            </div>
+            <div class="song-lyric-stanza" onclick="highlightLyric(4)">
+              "I open my eyes so I could see with you..."
+            </div>
+            <div class="song-lyric-stanza" onclick="highlightLyric(5)">
+              "And I live, so I can die with you."
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           FLOOR 06: THE PENTHOUSE SUITE & PERSONAL LETTER
+      =========================================================== -->
+      <section class="galleria-floor" id="floor-vault">
+        <div class="section-kicker">
+          <span class="kicker-tag">Level VI • Unspoken Words</span>
+          <span class="kicker-roman">From My Heart To Yours</span>
+        </div>
+
+        <div class="penthouse-letter-frame">
+          <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: var(--text-main); margin-bottom: 28px; font-weight: 400;">
+            WHY "PRECIOUS" WAS THE KEY
+          </h2>
+
+          <div class="letter-parchment-text">
+            <p>
+              When I was thinking of the password for this place, <em>"precious"</em> was the only word that came to mind. The clue whispered: 
+              <span class="letter-highlight-gold">"something you never said yourself"</span> — because in your gentle modesty, you were always too humble to ever call yourself precious. But you were, and you always will be.
+            </p>
+            <p>
+              Thank you for every sweet moment we shared, for looking so breathtaking in your frocks, for turning simple nutri kulcha into my favorite comfort food just by making it for me, and for all the little ways you made my world softer.
+            </p>
+            <p>
+              As you continue your college journey at CGC and as your birthday approaches, my deepest wish is for life to give you all the happiness, warmth, and peace you deserve. This place was built to remind you that what we shared was real, and that you will always hold an irreplaceable, gentle place in my heart.
+            </p>
+          </div>
+
+          <!-- Wishing Basin -->
+          <div class="wishing-basin-box">
+            <h4 style="font-family: var(--font-display); font-size: 1.3rem; color: var(--text-main); margin-bottom: 6px;">
+              The Galleria Shimmering Basin
+            </h4>
+            <p style="font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; color: var(--text-muted);">
+              Toss a golden coin into the fountain and make a peaceful wish.
+            </p>
+            <button class="basin-coin-btn" onclick="tossFountainCoin()">
+              TOSS A GOLDEN COIN 🪙
+            </button>
+            <div style="font-size: 0.8rem; color: var(--gold-primary); margin-top: 12px; font-family: var(--font-body);" id="wish-counter">
+              Coins in basin: 108 peaceful wishes
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Concourse Footer -->
+    <footer class="concourse-footer">
+      <div class="footer-galleria-logo">THE ELYSIAN GALLERIA</div>
+      <div class="footer-sub-text">A Private Curated Archive • Dedicated To Someone Rare</div>
+      <p style="font-size: 0.84rem; color: var(--text-muted); max-width: 500px; font-family: var(--font-serif); font-style: italic; line-height: 1.6;">
+        Designed in memory of the breeze on NH-05, the warmth of shared comfort, and the melody that never fades.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- =============================================================
+       WEB AUDIO SYNTHESIZER & AMBIENT CONTROLLERS
+  ============================================================= -->
+  <script>
+    /* -------------------------------------------------------------
+       1. DIE WITH YOU AUDIO ENGINE (Playing from 10th second)
+       - Uses local diewithyou.mp3 / diewithyou.mp4 track
+       - Plays starting from 10th second on password unlock
+       - Interactive play/pause & kinetic lyrics sync
+    ------------------------------------------------------------- */
+    let audioCtx = null;
+    let isPlaying = false;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function getAudioElement() {
+      return document.getElementById('bg-audio');
+    }
+
+    function startDieWithYouSong() {
+      const audioEl = getAudioElement();
+      if (!audioEl) return;
+
+      // Start the song directly from the 10th second as requested!
+      try {
+        audioEl.currentTime = 10;
+      } catch (e) {
+        console.warn('Could not set currentTime immediately:', e);
+      }
+
+      const playPromise = audioEl.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          audioEl.currentTime = 10; // reinforce exact 10s start
+          isPlaying = true;
+          updatePlayIcons(true);
+          const vinyl = document.getElementById('mall-vinyl');
+          if (vinyl) vinyl.classList.add('spinning');
+          const btnText = document.getElementById('play-btn-text');
+          if (btnText) btnText.textContent = "PAUSE MUSIC";
+        }).catch(err => {
+          console.warn('Playback notice:', err);
+        });
+      }
+    }
+
+    function toggleAudio() {
+      const audioEl = getAudioElement();
+      const vinyl = document.getElementById('mall-vinyl');
+      const btnText = document.getElementById('play-btn-text');
+
+      if (!audioEl) return;
+
+      if (audioEl.paused) {
+        if (audioEl.currentTime < 10) {
+          audioEl.currentTime = 10;
+        }
+        audioEl.play().then(() => {
+          isPlaying = true;
+          if (vinyl) vinyl.classList.add('spinning');
+          if (btnText) btnText.textContent = "PAUSE MUSIC";
+          updatePlayIcons(true);
+        }).catch(err => console.warn(err));
+      } else {
+        audioEl.pause();
+        isPlaying = false;
+        if (vinyl) vinyl.classList.remove('spinning');
+        if (btnText) btnText.textContent = "PLAY IN ATRIUM";
+        updatePlayIcons(false);
+      }
+    }
+
+    function updatePlayIcons(playing) {
+      const icon = document.getElementById('play-icon');
+      if (!icon) return;
+      if (playing) {
+        icon.innerHTML = `<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>`;
+      } else {
+        icon.innerHTML = `<polygon points="5 3 19 12 5 21 5 3"></polygon>`;
+      }
+    }
+
+    // Sync lyrics with the actual audio track playback
+    window.addEventListener('DOMContentLoaded', () => {
+      const audioEl = getAudioElement();
+      if (audioEl) {
+        audioEl.addEventListener('timeupdate', () => {
+          const time = audioEl.currentTime;
+          const lines = document.querySelectorAll('.song-lyric-stanza');
+          let activeIndex = 0;
+          
+          if (time >= 10 && time < 34) activeIndex = 0;
+          else if (time >= 34 && time < 58) activeIndex = 1;
+          else if (time >= 58 && time < 82) activeIndex = 2;
+          else if (time >= 82 && time < 106) activeIndex = 3;
+          else if (time >= 106 && time < 130) activeIndex = 4;
+          else if (time >= 130) activeIndex = 5;
+
+          lines.forEach((l, i) => {
+            if (i === activeIndex) {
+              l.classList.add('active');
+            } else {
+              l.classList.remove('active');
+            }
+          });
+        });
+
+        audioEl.addEventListener('play', () => {
+          isPlaying = true;
+          updatePlayIcons(true);
+          const vinyl = document.getElementById('mall-vinyl');
+          if (vinyl) vinyl.classList.add('spinning');
+          const btnText = document.getElementById('play-btn-text');
+          if (btnText) btnText.textContent = "PAUSE MUSIC";
+        });
+
+        audioEl.addEventListener('pause', () => {
+          isPlaying = false;
+          updatePlayIcons(false);
+          const vinyl = document.getElementById('mall-vinyl');
+          if (vinyl) vinyl.classList.remove('spinning');
+          const btnText = document.getElementById('play-btn-text');
+          if (btnText) btnText.textContent = "PLAY IN ATRIUM";
+        });
+      }
+    });
+
+    function highlightLyric(index) {
+      const audioEl = getAudioElement();
+      const timestamps = [10, 34, 58, 82, 106, 130];
+      if (audioEl) {
+        audioEl.currentTime = timestamps[index] || 10;
+        if (audioEl.paused) {
+          audioEl.play().catch(e => console.warn(e));
+        }
+      }
+      const lines = document.querySelectorAll('.song-lyric-stanza');
+      lines.forEach((l, i) => {
+        if (i === index) l.classList.add('active');
+        else l.classList.remove('active');
+      });
+    }
+
+    /* Soft Chime on Entrance */
+    function playAcousticChime() {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sine';
+        osc2.type = 'sine';
+        
+        osc1.frequency.setValueAtTime(880, now);      // A5
+        osc2.frequency.setValueAtTime(1318.51, now + 0.12); // E6
+
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc1.stop(now + 1.2);
+        osc2.start(now + 0.12);
+        osc2.stop(now + 2.2);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    /* Soft Tawa Sizzle */
+    function playSoftTawaSizzle() {
+      try {
+        const ctx = getAudioContext();
+        const bufferSize = ctx.sampleRate * 1.4;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 2800;
+        filter.Q.value = 2.0;
+
+        const gain = ctx.createGain();
+        const now = ctx.currentTime;
+        gain.gain.setValueAtTime(0.01, now);
+        gain.gain.linearRampToValueAtTime(0.24, now + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
+
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+
+        noise.start(now);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    /* Soft Frog Ribbit Sound */
+    function playFrogCroak() {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.linearRampToValueAtTime(280, now + 0.08);
+        osc.frequency.linearRampToValueAtTime(140, now + 0.22);
+
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.32);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    /* Fountain Coin Chime */
+    function playCoinChime() {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1567.98, now); // G6
+        osc.frequency.exponentialRampToValueAtTime(2093.00, now + 0.14); // C7
+
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 1.4);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       2. GATEWAY PASSWORD UNLOCK
+       Password: "precious" (Flexible, forgiving matching)
+    ------------------------------------------------------------- */
+    function quickFillPrecious() {
+      const input = document.getElementById('password-input');
+      if (input) {
+        input.value = 'precious';
+        attemptUnlock();
+      }
+    }
+
+    function isPassMatch(val) {
+      if (!val) return false;
+      const clean = val.trim().toLowerCase().replace(/['"“”.,!]/g, '');
+      const compact = clean.replace(/\s+/g, '');
+      return (
+        clean === 'precious' ||
+        clean.includes('precious') ||
+        compact === 'precious' ||
+        compact === 'somethinguneversaidurself' ||
+        compact === 'somethingyouneversaidyourself' ||
+        compact === 'youareprecious' ||
+        compact === 'youreprecious' ||
+        compact === 'urprecious'
+      );
+    }
+
+    function attemptUnlock(e) {
+      if (e && e.preventDefault) e.preventDefault();
+
+      const input = document.getElementById('password-input');
+      const errorMsg = document.getElementById('gate-error');
+      const gateCard = document.getElementById('vault-card-box');
+      const gateView = document.getElementById('gatekeeper-view');
+      const mallUniverse = document.getElementById('galleria-universe');
+
+      let rawVal = input ? input.value : '';
+
+      // If clicked without typing, auto-fill precious and unlock effortlessly
+      if (!rawVal || rawVal.trim() === '') {
+        rawVal = 'precious';
+        if (input) input.value = 'precious';
+      }
+
+      if (isPassMatch(rawVal)) {
+        if (errorMsg) {
+          errorMsg.classList.remove('visible');
+        }
+
+        try {
+          playAcousticChime();
+        } catch (err) {
+          console.warn('Audio note:', err);
+        }
+
+        // 1. Immediately activate and display the mall universe
+        if (mallUniverse) {
+          mallUniverse.classList.add('active');
+          mallUniverse.style.opacity = '1';
+          mallUniverse.style.visibility = 'visible';
+          mallUniverse.style.display = 'block';
+        }
+
+        // 2. Animate and remove gatekeeper overlay completely
+        if (gateView) {
+          gateView.classList.add('unlocked');
+          gateView.style.pointerEvents = 'none';
+          gateView.style.opacity = '0';
+          setTimeout(() => {
+            gateView.style.display = 'none';
+          }, 700);
+        }
+
+        // 3. Ensure document scrolling is fully enabled
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+
+        // 4. Start Die With You song directly from the 10th second on password unlock!
+        try {
+          startDieWithYouSong();
+        } catch (err) {
+          console.warn('Audio start note:', err);
+        }
+
+      } else {
+        if (errorMsg) {
+          errorMsg.textContent = 'Incorrect passcode. Clue: "something u never said ur self" (Try: precious)';
+          errorMsg.classList.add('visible');
+        }
+        if (gateCard) {
+          gateCard.classList.add('gentle-shake');
+          setTimeout(() => {
+            gateCard.classList.remove('gentle-shake');
+          }, 600);
+        }
+        if (input) {
+          input.value = '';
+          input.focus();
+        }
+      }
+    }
+
+    // Auto-focus input on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('password-input');
+      if (input) input.focus();
+    });
+
+    /* -------------------------------------------------------------
+       3. ELEVATOR DOCK NAVIGATION
+    ------------------------------------------------------------- */
+    function rideElevator(targetFloorId) {
+      playAcousticChime();
+      const floorEl = document.getElementById(targetFloorId);
+      if (floorEl) {
+        floorEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      const floors = ['floor-cgc', 'floor-frok', 'floor-nutri', 'floor-bday', 'floor-song', 'floor-vault'];
+      const scrollPos = window.scrollY + window.innerHeight * 0.4;
+      const dockItems = document.querySelectorAll('.dock-station');
+
+      floors.forEach((id, idx) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const bottom = top + el.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            dockItems.forEach(item => item.classList.remove('active'));
+            if (dockItems[idx]) dockItems[idx].classList.add('active');
+          }
+        }
+      });
+    });
+
+    /* -------------------------------------------------------------
+       4. INTERACTION HELPERS (FROK, NUTRI, BIRTHDAY, COIN)
+    ------------------------------------------------------------- */
+    function setGownStyle(colorHex, name) {
+      const frock = document.getElementById('frog-frock-mesh');
+      if (frock) {
+        frock.setAttribute('fill', colorHex);
+      }
+      const pills = document.querySelectorAll('.couture-swatch-btn');
+      pills.forEach(p => p.classList.remove('active'));
+      const btn = (window.event && window.event.currentTarget) ? window.event.currentTarget : null;
+      if (btn) btn.classList.add('active');
+
+      const speech = document.getElementById('frog-speech');
+      if (speech) {
+        speech.textContent = `Dressed in ${name} ✨`;
+        speech.classList.add('active');
+        setTimeout(() => speech.classList.remove('active'), 2500);
+      }
+
+      playFrogCroak();
+    }
+
+    function triggerFrogRibbit() {
+      playFrogCroak();
+      const speech = document.getElementById('frog-speech');
+      if (speech) {
+        const messages = [
+          "A peaceful day in the atrium 🌿",
+          "You look undeniably graceful ✨",
+          "Wishing you the happiest college life at CGC 🎓",
+          "The aroma of fresh nutri kulcha... ☕",
+          "Listening to Die With You 🎶"
+        ];
+        speech.textContent = messages[Math.floor(Math.random() * messages.length)];
+        speech.classList.add('active');
+        setTimeout(() => speech.classList.remove('active'), 2500);
+      }
+    }
+
+    function sizzleTawaAction() {
+      playSoftTawaSizzle();
+      const tawa = document.getElementById('artisan-tawa');
+      const steam = document.getElementById('steam-vapor-layer');
+
+      if (tawa) {
+        tawa.style.transform = 'scale(0.96)';
+        setTimeout(() => {
+          tawa.style.transform = 'scale(1)';
+        }, 200);
+      }
+
+      if (steam) {
+        for (let i = 0; i < 7; i++) {
+          const puff = document.createElement('div');
+          puff.style.position = 'absolute';
+          puff.style.left = `${35 + Math.random() * 30}%`;
+          puff.style.top = `${35 + Math.random() * 30}%`;
+          puff.style.width = '12px';
+          puff.style.height = '12px';
+          puff.style.background = 'rgba(255, 255, 255, 0.7)';
+          puff.style.borderRadius = '50%';
+          puff.style.filter = 'blur(4px)';
+          puff.style.pointerEvents = 'none';
+          puff.style.transition = 'all 1s var(--soft-ease)';
+          steam.appendChild(puff);
+
+          requestAnimationFrame(() => {
+            puff.style.transform = `translate(${(Math.random() - 0.5) * 60}px, -90px) scale(2.6)`;
+            puff.style.opacity = '0';
+          });
+
+          setTimeout(() => puff.remove(), 1100);
+        }
+      }
+    }
+
+    /* Dedicated Birthday Pavilion Wish Generator */
+    let bdayWishCount = 108;
+    function sendBirthdayWish() {
+      bdayWishCount++;
+      playCoinChime();
+
+      const counter = document.getElementById('bday-wish-counter');
+      if (counter) {
+        counter.textContent = `Wishes sent for your birthday: ${bdayWishCount} warm blessings ✨`;
+      }
+
+      const candle = document.getElementById('bday-candle');
+      if (candle) {
+        candle.style.transform = 'scale(1.3) rotate(8deg)';
+        candle.style.filter = 'drop-shadow(0 0 16px rgba(214, 184, 121, 0.9))';
+        setTimeout(() => {
+          candle.style.transform = 'scale(1) rotate(0deg)';
+          candle.style.filter = 'none';
+        }, 400);
+      }
+
+      const btn = (window.event && window.event.currentTarget) ? window.event.currentTarget : null;
+      if (btn) {
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => { btn.style.transform = 'scale(1)'; }, 150);
+      }
+    }
+
+    let wishCount = 108;
+    function tossFountainCoin() {
+      wishCount++;
+      playCoinChime();
+      const counter = document.getElementById('wish-counter');
+      if (counter) {
+        counter.textContent = `Coins in basin: ${wishCount} peaceful wishes ✨`;
+      }
+
+      const btn = (window.event && window.event.currentTarget) ? window.event.currentTarget : null;
+      if (btn) {
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => btn.style.transform = 'scale(1)', 150);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       5. MINIMALIST AMBIENT DUST CANVAS (Soft Champagne Gold)
+    ------------------------------------------------------------- */
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class SoftMote {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2.0 + 0.6;
+        this.speedY = -(Math.random() * 0.35 + 0.1);
+        this.speedX = (Math.random() - 0.5) * 0.2;
+        this.opacity = Math.random() * 0.45 + 0.15;
+        this.color = Math.random() > 0.5 ? '#b8924b' : '#eed9dc';
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        if (this.y < -10) this.y = height + 10;
+        if (this.x < -10) this.x = width + 10;
+        if (this.x > width + 10) this.x = -10;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new SoftMote());
+    }
+
+    function renderLoop() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      drawWaveVisualizer();
+      requestAnimationFrame(renderLoop);
+    }
+    requestAnimationFrame(renderLoop);
+
+    /* Minimalist Header Wave Visualizer */
+    const waveCanvas = document.getElementById('header-wave-canvas');
+    const waveCtx = waveCanvas ? waveCanvas.getContext('2d') : null;
+
+    function drawWaveVisualizer() {
+      if (!waveCanvas || !waveCtx) return;
+      waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+
+      const time = Date.now() * 0.005;
+      for (let i = 0; i < 8; i++) {
+        let barHeight;
+        if (isPlaying) {
+          barHeight = Math.abs(Math.sin(time * 1.8 + i * 0.85)) * (waveCanvas.height * 0.78) + 3;
+          waveCtx.fillStyle = '#b8924b';
+        } else {
+          barHeight = Math.sin(time * 0.4 + i * 0.6) * 2.5 + 4;
+          waveCtx.fillStyle = '#d6b879';
+        }
+        waveCtx.fillRect(i * 6, waveCanvas.height - barHeight, 2.8, barHeight);
+      }
+    }
+
+    /* -------------------------------------------------------------
+       6. MINIMALIST LUXURY CURSOR
+    ------------------------------------------------------------- */
+    const cursorFollower = document.getElementById('cursor-follower');
+    const cursorDot = document.getElementById('cursor-dot');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let followerX = mouseX;
+    let followerY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (cursorDot) {
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+      }
+    });
+
+    function updateFollower() {
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      if (cursorFollower) {
+        cursorFollower.style.left = `${followerX}px`;
+        cursorFollower.style.top = `${followerY}px`;
+      }
+      requestAnimationFrame(updateFollower);
+    }
+    requestAnimationFrame(updateFollower);
+
+    document.querySelectorAll('button, a, .editorial-card, .mannequin-frog-stage, .artisan-tawa, .song-lyric-stanza, .dock-station').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (cursorFollower) {
+          cursorFollower.style.width = '42px';
+          cursorFollower.style.height = '42px';
+          cursorFollower.style.borderColor = 'rgba(184, 146, 75, 0.7)';
+          cursorFollower.style.background = 'rgba(214, 184, 121, 0.1)';
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        if (cursorFollower) {
+          cursorFollower.style.width = '28px';
+          cursorFollower.style.height = '28px';
+          cursorFollower.style.borderColor = 'rgba(184, 146, 75, 0.45)';
+          cursorFollower.style.background = 'transparent';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
